@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vaishnavi Prakash Gurav — Portfolio</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #FAF8F5;
+      --warm-white: #FFFFFF;
+      --ink: #1A1A2E;
+      --ink-soft: #3D3D5C;
+      --ink-muted: #7A7A9A;
+      --gold: #C9973A;
+      --gold-light: #E8C97A;
+      --gold-pale: #FDF3E0;
+      --teal: #2A7B7B;
+      --teal-light: #E0F2F2;
+      --border: #E8E4DC;
+      --shadow: 0 4px 30px rgba(26, 26, 46, 0.08);
+      --shadow-hover: 0 12px 50px rgba(26, 26, 46, 0.14);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(250, 248, 245, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--ink-soft);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 100px 5% 60px;
+      background: linear-gradient(135deg, var(--cream) 60%, var(--teal-light) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, var(--gold-pale) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .hero-text {
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: var(--teal-light);
+      color: var(--teal);
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-name span {
+      color: var(--gold);
+    }
+
+    .hero-title {
+      font-size: 1.05rem;
+      color: var(--ink-soft);
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.01em;
+    }
+
+    .hero-desc {
+      color: var(--ink-muted);
+      font-size: 0.95rem;
+      max-width: 440px;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--ink);
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      transition: all 0.25s;
+      border: 2px solid var(--ink);
+    }
+
+    .btn-primary:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--ink);
+      padding: 12px 28px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      border: 2px solid var(--border);
+      transition: all 0.25s;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* Profile Photo */
+    .hero-photo-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: fadeUp 0.8s 0.2s ease both;
+    }
+
+    .photo-ring {
+      position: relative;
+      width: 300px;
+      height: 300px;
+    }
+
+    .photo-ring::before {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      border-radius: 50%;
+      background: conic-gradient(var(--gold), var(--teal), var(--gold));
+      animation: spin 8s linear infinite;
+    }
+
+    .photo-ring::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      background: var(--cream);
+    }
+
+    .profile-photo {
+      position: relative;
+      z-index: 1;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+
+    .photo-badge {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      z-index: 2;
+      background: var(--warm-white);
+      border: 2px solid var(--border);
+      border-radius: 50px;
+      padding: 6px 14px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--teal);
+      box-shadow: var(--shadow);
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 80px 5%;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 2.5rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: var(--gold);
+      margin-top: 8px;
+    }
+
+    /* ── ABOUT / STATS ── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .stat-card {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.25s;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--gold-light);
+    }
+
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.82rem;
+      color: var(--ink-muted);
+      margin-top: 4px;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-section {
+      background: var(--warm-white);
+    }
+
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .edu-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.8rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.25s;
+    }
+
+    .edu-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .edu-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--gold);
+    }
+
+    .edu-level {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.4rem;
+    }
+
+    .edu-degree {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+    }
+
+    .edu-school {
+      font-size: 0.88rem;
+      color: var(--ink-soft);
+      margin-bottom: 0.3rem;
+    }
+
+    .edu-year {
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .edu-marks {
+      display: inline-block;
+      background: var(--gold-pale);
+      color: var(--gold);
+      padding: 4px 12px;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-group {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.6rem;
+      transition: all 0.25s;
+    }
+
+    .skill-group:hover {
+      box-shadow: var(--shadow-hover);
+      border-color: var(--teal-light);
+    }
+
+    .skill-group-title {
+      font-weight: 600;
+      color: var(--ink);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .skill-group-title .icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      background: var(--teal-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-tag {
+      background: var(--cream);
+      color: var(--ink-soft);
+      padding: 4px 12px;
+      border-radius: 50px;
+      font-size: 0.78rem;
+      border: 1px solid var(--border);
+    }
+
+    /* ── CERTIFICATIONS ── */
+    .certs-section {
+      background: var(--cream);
+    }
+
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .cert-card {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.6rem;
+      transition: all 0.25s;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .cert-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--gold-light);
+    }
+
+    .cert-icon {
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      border-radius: 10px;
+      background: var(--gold-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+    }
+
+    .cert-name {
+      font-weight: 600;
+      color: var(--ink);
+      font-size: 0.92rem;
+      margin-bottom: 3px;
+    }
+
+    .cert-issuer {
+      font-size: 0.8rem;
+      color: var(--teal);
+      margin-bottom: 3px;
+    }
+
+    .cert-year {
+      font-size: 0.76rem;
+      color: var(--ink-muted);
+    }
+
+    /* ── SOCIAL ── */
+    .social-section {
+      background: var(--warm-white);
+    }
+
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .social-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: all 0.25s;
+      background: var(--cream);
+    }
+
+    .social-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--gold-light);
+    }
+
+    .social-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .social-name {
+      font-weight: 600;
+      color: var(--ink);
+      font-size: 0.88rem;
+    }
+
+    .social-handle {
+      font-size: 0.76rem;
+      color: var(--ink-muted);
+    }
+
+    /* ── CONTACT ── */
+    .contact-section {
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .contact-section .section-label {
+      color: var(--gold-light);
+    }
+
+    .contact-section .section-title {
+      color: #fff;
+    }
+
+    .contact-section .section-title::after {
+      background: var(--gold);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .contact-item {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      padding: 1.4rem;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .contact-label {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .contact-value {
+      font-size: 0.9rem;
+      color: #fff;
+      font-weight: 500;
+      word-break: break-word;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #111;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--border), transparent);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+      }
+
+      .hero-photo-wrap {
+        order: -1;
+      }
+
+      .photo-ring {
+        width: 220px;
+        height: 220px;
+      }
+
+      .profile-photo {
+        width: 220px;
+        height: 220px;
+      }
+
+      .hero-desc {
+        max-width: 100%;
+      }
+
+      .hero-btns {
+        justify-content: center;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">Vaishnavi Gurav</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="about">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-tag">📍 Maharashtra, India</div>
+        <h1 class="hero-name">Vaishnavi<br /><span>Prakash Gurav</span></h1>
+        <p class="hero-title">Computer Engineering Student &amp; Aspiring Developer</p>
+        <p class="hero-desc">
+          A passionate and dedicated B.Tech student in Computer Engineering with a strong academic foundation,
+          hands-on technical skills, and a drive to build meaningful digital solutions.
+          Always eager to learn, grow, and contribute.
+        </p>
+        <div class="hero-btns">
+          <a href="#contact" class="btn-primary">Get In Touch</a>
+          <a href="#education" class="btn-outline">View Education</a>
+        </div>
+      </div>
+      <div class="hero-photo-wrap">
+        <div class="photo-ring">
+          <img class="profile-photo" src="VAISNAVI_PIC.jpeg" alt="Vaishnavi Prakash Gurav"
+            onerror="this.style.background='linear-gradient(135deg,#2A7B7B,#C9973A)';this.src='';this.alt='VP'" />
+          <div class="photo-badge">🎓 B.Tech CSE</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section style="background:var(--warm-white); padding: 50px 5%;">
+    <div class="section-inner">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-num">93.80%</div>
+          <div class="stat-label">10th Grade Score</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">91.77%</div>
+          <div class="stat-label">Diploma (Final Year)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">5+</div>
+          <div class="stat-label">Certifications</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">3+</div>
+          <div class="stat-label">Projects Completed</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- EDUCATION -->
+  <section class="edu-section" id="education">
+    <div class="section-inner">
+      <p class="section-label">Academic Journey</p>
+      <h2 class="section-title">Education</h2>
+      <div class="edu-grid">
+
+        <div class="edu-card">
+          <div class="edu-level">Secondary School</div>
+          <div class="edu-degree">10th Standard (SSC)</div>
+          <div class="edu-school">Maharashtra State Board</div>
+          <div class="edu-year">📅 2020–2021</div>
+          <span class="edu-marks">🏆 Score: 93.80% (Distinction)</span>
+        </div>
+
+        <div class="edu-card">
+          <div class="edu-level">Diploma — 1st Year</div>
+          <div class="edu-degree">Diploma in Computer Technology</div>
+          <div class="edu-school">Nanasaheb Mahadik Polytechnic, Pusad</div>
+          <div class="edu-year">📅 2022–2023</div>
+          <span class="edu-marks">🏆 Score: 91.45%</span>
+        </div>
+
+        <div class="edu-card">
+          <div class="edu-level">Diploma — 2nd Year</div>
+          <div class="edu-degree">Diploma in Computer Technology</div>
+          <div class="edu-school">Nanasaheb Mahadik Polytechnic, Pusad</div>
+          <div class="edu-year">📅 2023–2024</div>
+          <span class="edu-marks">🏆 Score: 90.00%</span>
+        </div>
+
+        <div class="edu-card">
+          <div class="edu-level">Diploma — 3rd Year (Final)</div>
+          <div class="edu-degree">Diploma in Computer Engineering</div>
+          <div class="edu-school">Ashokrao Mane Polytechnic, Vathar</div>
+          <div class="edu-year">📅 2024–2025</div>
+          <span class="edu-marks">🏆 Score: 91.77%</span>
+        </div>
+        <div class="edu-card">
+          <div class="edu-level">B.Tech - Second Year</div>
+          <div class="edu-degree">B.Tech in Computer Engineering</div>
+          <div class="edu-school">Rajarambapu Institute of Technology, Sakharale</div>
+          <div class="edu-year">📅 2025–2026 (ongoing)</div>
+          <span class="edu-marks" style="background:var(--teal-light);color:var(--teal);">🎓 In Progress</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SKILLS -->
+  <section id="skills" style="background:var(--cream);">
+    <div class="section-inner">
+      <p class="section-label">What I Know</p>
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="skills-grid">
+
+        <div class="skill-group">
+          <div class="skill-group-title"><span class="icon">💻</span> Programming</div>
+          <div class="skill-tags">
+            <span class="skill-tag">C</span>
+            <span class="skill-tag">C++</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Java (Basics)</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-title"><span class="icon">🌐</span> Web Development</div>
+          <div class="skill-tags">
+            <span class="skill-tag">HTML5</span>
+            <span class="skill-tag">CSS3</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">Bootstrap</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-title"><span class="icon">🗄️</span> Database</div>
+          <div class="skill-tags">
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">SQL Queries</span>
+            <span class="skill-tag">MongoDB</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-title"><span class="icon">🛠️</span> Tools & OS</div>
+          <div class="skill-tags">
+            <span class="skill-tag">MS Office</span>
+            <span class="skill-tag">Windows</span>
+            <span class="skill-tag">Linux (Basic)</span>
+            <span class="skill-tag">VS Code</span>
+            <span class="skill-tag">GitHub</span>
+            <span class="skill-tag">Git</span>
+
+
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-title"><span class="icon">🤝</span> Soft Skills</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Team Work</span>
+            <span class="skill-tag">Communication</span>
+            <span class="skill-tag">Problem Solving</span>
+            <span class="skill-tag">Leadership</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-title"><span class="icon">📐</span> Concepts</div>
+          <div class="skill-tags">
+            <span class="skill-tag">OOP</span>
+            <span class="skill-tag">Data Structures</span>
+            <span class="skill-tag">Networking</span>
+            <span class="skill-tag">DBMS</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CERTIFICATIONS -->
+  <section class="certs-section" id="certifications">
+    <div class="section-inner">
+      <p class="section-label">Achievements</p>
+      <h2 class="section-title">Certifications</h2>
+      <div class="certs-grid">
+
+        <div class="cert-card">
+          <div class="cert-icon">🐍</div>
+          <div>
+            <div class="cert-name">Python Programming</div>
+            <div class="cert-issuer">python workshop</div>
+            <div class="cert-year">2024</div>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon">🌐</div>
+          <div>
+            <div class="cert-name">Web Development Fundamentals</div>
+            <div class="cert-issuer">Infosys Springboard</div>
+            <div class="cert-year">2026</div>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon">🗄️</div>
+          <div>
+            <div class="cert-name">Database Management (SQL)</div>
+            <div class="cert-issuer">DBMS workshop</div>
+            <div class="cert-year">2024</div>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon">☁️</div>
+          <div>
+            <div class="cert-name">Cloud Computing Basics</div>
+            <div class="cert-issuer">Google / Coursera</div>
+            <div class="cert-year">2024</div>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon">🤖</div>
+          <div>
+            <div class="cert-name">Introduction to AI/ML</div>
+            <div class="cert-issuer">Google Digital Garage</div>
+            <div class="cert-year">2024</div>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon">🏅</div>
+          <div>
+            <div class="cert-name">Industrial Training Certificate</div>
+            <div class="cert-issuer">Domain Computers, Kolhapur</div>
+            <div class="cert-year">2024</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SOCIAL LINKS -->
+  <section class="social-section" id="social">
+    <div class="section-inner">
+      <p class="section-label">Connect With Me</p>
+      <h2 class="section-title">Social Links</h2>
+      <div class="social-grid">
+
+        <a href="https://linkedin.com/in/vaishnavi-gurav" target="_blank" class="social-card">
+          <div class="social-icon" style="background:#E8F4FF;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="#0077B5">
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+            </svg>
+          </div>
+          <div>
+            <div class="social-name">LinkedIn</div>
+            <div class="social-handle">vaishnavi-gurav</div>
+          </div>
+        </a>
+
+        <a href="https://github.com/vaishnaverse" target="_blank" class="social-card">
+          <div class="social-icon" style="background:#F0F0F0;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="#24292E">
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+            </svg>
+          </div>
+          <div>
+            <div class="social-name">GitHub</div>
+            <div class="social-handle">vaishnaverse</div>
+          </div>
+        </a>
+
+        <a href="mailto:vaishnavigurav92005@gmail.com" class="social-card">
+          <div class="social-icon" style="background:#FFF0EE;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="#EA4335">
+              <path
+                d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.910 1.528-1.145C21.69 2.28 24 3.434 24 5.457z" />
+            </svg>
+          </div>
+          <div>
+            <div class="social-name">Email</div>
+            <div class="social-handle">vaishnavigurav92005@gmail.com</div>
+          </div>
+        </a>
+
+        <a href="https://instagram.com/vaishnaverse__.07" target="_blank" class="social-card">
+          <div class="social-icon" style="background:#FFF0F8;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="url(#ig)">
+              <defs>
+                <linearGradient id="ig" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" style="stop-color:#f09433" />
+                  <stop offset="25%" style="stop-color:#e6683c" />
+                  <stop offset="50%" style="stop-color:#dc2743" />
+                  <stop offset="75%" style="stop-color:#cc2366" />
+                  <stop offset="100%" style="stop-color:#bc1888" />
+                </linearGradient>
+              </defs>
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+            </svg>
+          </div>
+          <div>
+            <div class="social-name">Instagram</div>
+            <div class="social-handle">vaishnaverse__.07</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="section-inner">
+      <p class="section-label">Reach Out</p>
+      <h2 class="section-title">Contact Me</h2>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <span style="font-size:1.5rem;">📍</span>
+          <div>
+            <div class="contact-label">Location</div>
+            <div class="contact-value">Vathar Tarf Udgaon, Maharashtra, India</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span style="font-size:1.5rem;">📧</span>
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-value">vaishnavigurav92005@gmail.com</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span style="font-size:1.5rem;">🎓</span>
+          <div>
+            <div class="contact-label">Institute</div>
+            <div class="contact-value">Rajarambapu Institute of Technology, Rajaramnagar</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span style="font-size:1.5rem;">📱</span>
+          <div>
+            <div class="contact-label">Available For</div>
+            <div class="contact-value">Internships & Projects</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Vaishnavi Prakash Gurav · Crafted with ❤️ · All Rights Reserved
+  </footer>
+
+</body>
+
+</html>
